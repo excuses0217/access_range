@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>欢迎来到OurShop！</h1>
+        <nav>
+            {% if 'username' in session %}
+            <p><a href="/profile">{{ session['username'] }}</a> | <a href="/logout">退出登录</a></p> <!-- 添加退出登录链接 -->
+            {% else %}
+            <a href="/login">登录</a> | <a href="/register">注册</a>
+            {% endif %}
+        </nav>
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="输入关键字搜索产品">
+            <button type="submit">搜索</button>
+        </form>
+    </header>
+    <div class="product-container">
+        <h2>产品列表</h2>
+        <section class="product-list">
+            {% for product in products %}
+            <div class="product">
+                <h3><a href="/product?product_id={{ product[0] }}">{{ product[1] }}</a></h3>
+                <p>价格: ${{ product[2] }}</p>
+                <p>类别: {{ product[3] }}</p>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 OurShop. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

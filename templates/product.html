@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product[1] }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="product-detail-container">
+        <h1>{{ product[1] }}</h1>
+        <div class="product-info">
+            <p><strong>价格:</strong> ${{ product[2] }}</p>
+            <p><strong>类别:</strong> {{ product[3] }}</p>
+        </div>
+        <div class="product-description">
+            <h2>产品描述</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum lacus quis magna ultrices, nec ultricies lorem consequat. Duis nec eros at ipsum gravida venenatis.</p>
+            <p>Nulla facilisi. Integer eu ex in ex fermentum ultrices. Suspendisse potenti. Vivamus efficitur risus ac tellus ultrices, eu gravida est pharetra.</p>
+        </div>
+        <p><a href="/" class="btn">返回首页</a></p>
+    </div>
+</body>
+</html>

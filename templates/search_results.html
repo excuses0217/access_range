@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="search-results-container">
+        <h1>搜索结果</h1>
+        <p><strong>搜索关键字:</strong> {{ query }}</p>
+        <ul class="product-list">
+            {% for product in results %}
+                <li class="product-item">
+                    <div class="product-info">
+                        <h2>{{ product[1] }}</h2>
+                        <p>价格: ${{ product[2] }}</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/product/{{ product[0] }}" class="btn">查看详情</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="user-info-container">
+        <h1>用户信息</h1>
+        {% if user %}
+            <div class="user-details">
+                <p><strong>用户名:</strong> {{ user[1] }}</p>
+                <p><strong>邮箱:</strong> {{ user[3] }}</p>
+            </div>
+            <div class="order-history">
+                <h2>订单历史</h2>
+                <ul>
+                    {% for order in orders %}
+                        <li>产品编号 {{ order[2] }} - 数量 {{ order[3] }} - 订单日期 {{ order[4].strftime('%Y-%m-%d') }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>用户信息无法显示。</p>
+        {% endif %}
+        <p><a href="/" class="btn">返回首页</a></p>
+    </div>
+</body>
+</html>
